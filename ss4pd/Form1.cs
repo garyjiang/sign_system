@@ -102,8 +102,7 @@ namespace ss4pd
 
                     video_panel.Hide();
                     print_panel1.Show();
-                    EventArgs = new EventHandler(button1);
-                    eventA+ 
+                    
                 }
                 
             }
@@ -165,6 +164,22 @@ namespace ss4pd
             //{
                 this.printDocument1.Print();
             //}
+        }
+
+        private void bt_rescupture_Click(object sender, EventArgs e)
+        {
+            //pictureBox1.Image.Dispose();
+            //if (pictureBox1.Image != null)
+            //{
+            //    pictureBox1.Image = null;
+            //    videoSourcePlayer1.Show();
+            //
+            //}
+            if (File.Exists(sv_img))
+            {
+
+                File.Delete(sv_img);
+            }
         }
 
     }

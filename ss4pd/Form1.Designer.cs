@@ -140,6 +140,7 @@
             this.bt_rescupture.TabIndex = 2;
             this.bt_rescupture.Text = "重拍";
             this.bt_rescupture.UseVisualStyleBackColor = true;
+            this.bt_rescupture.Click += new System.EventHandler(this.bt_rescupture_Click);
             // 
             // bt_cupture1
             // 
@@ -171,17 +172,17 @@
             this.print_panel1.Controls.Add(this.prt_pb3);
             this.print_panel1.Controls.Add(this.prt_pb4);
             this.print_panel1.Controls.Add(this.prt_pb1);
-            this.print_panel1.Location = new System.Drawing.Point(363, 5);
+            this.print_panel1.Location = new System.Drawing.Point(126, 1);
             this.print_panel1.Name = "print_panel1";
-            this.print_panel1.Size = new System.Drawing.Size(420, 544);
+            this.print_panel1.Size = new System.Drawing.Size(800, 1088);
             this.print_panel1.TabIndex = 2;
             this.print_panel1.Visible = false;
             // 
             // prt_pb2
             // 
-            this.prt_pb2.Location = new System.Drawing.Point(217, 9);
+            this.prt_pb2.Location = new System.Drawing.Point(406, 9);
             this.prt_pb2.Name = "prt_pb2";
-            this.prt_pb2.Size = new System.Drawing.Size(192, 158);
+            this.prt_pb2.Size = new System.Drawing.Size(384, 312);
             this.prt_pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb2.TabIndex = 1;
             this.prt_pb2.TabStop = false;
@@ -189,45 +190,45 @@
             // 
             // prt_pb5
             // 
-            this.prt_pb5.Location = new System.Drawing.Point(15, 364);
+            this.prt_pb5.Location = new System.Drawing.Point(8, 645);
             this.prt_pb5.Name = "prt_pb5";
-            this.prt_pb5.Size = new System.Drawing.Size(192, 162);
+            this.prt_pb5.Size = new System.Drawing.Size(384, 312);
             this.prt_pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb5.TabIndex = 5;
             this.prt_pb5.TabStop = false;
             // 
             // prt_pb6
             // 
-            this.prt_pb6.Location = new System.Drawing.Point(217, 364);
+            this.prt_pb6.Location = new System.Drawing.Point(406, 645);
             this.prt_pb6.Name = "prt_pb6";
-            this.prt_pb6.Size = new System.Drawing.Size(192, 162);
+            this.prt_pb6.Size = new System.Drawing.Size(384, 312);
             this.prt_pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb6.TabIndex = 4;
             this.prt_pb6.TabStop = false;
             // 
             // prt_pb3
             // 
-            this.prt_pb3.Location = new System.Drawing.Point(15, 184);
+            this.prt_pb3.Location = new System.Drawing.Point(8, 327);
             this.prt_pb3.Name = "prt_pb3";
-            this.prt_pb3.Size = new System.Drawing.Size(192, 159);
+            this.prt_pb3.Size = new System.Drawing.Size(384, 312);
             this.prt_pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb3.TabIndex = 3;
             this.prt_pb3.TabStop = false;
             // 
             // prt_pb4
             // 
-            this.prt_pb4.Location = new System.Drawing.Point(217, 185);
+            this.prt_pb4.Location = new System.Drawing.Point(406, 327);
             this.prt_pb4.Name = "prt_pb4";
-            this.prt_pb4.Size = new System.Drawing.Size(192, 158);
+            this.prt_pb4.Size = new System.Drawing.Size(384, 312);
             this.prt_pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb4.TabIndex = 2;
             this.prt_pb4.TabStop = false;
             // 
             // prt_pb1
             // 
-            this.prt_pb1.Location = new System.Drawing.Point(15, 10);
+            this.prt_pb1.Location = new System.Drawing.Point(8, 9);
             this.prt_pb1.Name = "prt_pb1";
-            this.prt_pb1.Size = new System.Drawing.Size(192, 157);
+            this.prt_pb1.Size = new System.Drawing.Size(384, 312);
             this.prt_pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb1.TabIndex = 0;
             this.prt_pb1.TabStop = false;
@@ -238,7 +239,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(153, 526);
+            this.button1.Location = new System.Drawing.Point(22, 592);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -254,11 +255,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.print_panel1);
             this.Controls.Add(this.video_panel);
             this.Controls.Add(this.first_panel1);
+            this.Controls.Add(this.print_panel1);
             this.Name = "Form1";
             this.Text = "电子签名系统";
             this.Load += new System.EventHandler(this.Form1_Load);
