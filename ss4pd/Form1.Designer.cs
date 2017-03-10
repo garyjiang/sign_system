@@ -40,21 +40,24 @@
             this.bt_cupture1 = new System.Windows.Forms.Button();
             this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
             this.print_panel1 = new System.Windows.Forms.Panel();
-            this.prt_pb1 = new System.Windows.Forms.PictureBox();
             this.prt_pb2 = new System.Windows.Forms.PictureBox();
-            this.prt_pb3 = new System.Windows.Forms.PictureBox();
-            this.prt_pb4 = new System.Windows.Forms.PictureBox();
             this.prt_pb5 = new System.Windows.Forms.PictureBox();
             this.prt_pb6 = new System.Windows.Forms.PictureBox();
+            this.prt_pb3 = new System.Windows.Forms.PictureBox();
+            this.prt_pb4 = new System.Windows.Forms.PictureBox();
+            this.prt_pb1 = new System.Windows.Forms.PictureBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.button1 = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.first_panel1.SuspendLayout();
             this.video_panel.SuspendLayout();
             this.print_panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb1)).BeginInit();
             this.SuspendLayout();
             // 
             // first_panel1
@@ -162,11 +165,11 @@
             // 
             // print_panel1
             // 
+            this.print_panel1.Controls.Add(this.prt_pb2);
             this.print_panel1.Controls.Add(this.prt_pb5);
             this.print_panel1.Controls.Add(this.prt_pb6);
             this.print_panel1.Controls.Add(this.prt_pb3);
             this.print_panel1.Controls.Add(this.prt_pb4);
-            this.print_panel1.Controls.Add(this.prt_pb2);
             this.print_panel1.Controls.Add(this.prt_pb1);
             this.print_panel1.Location = new System.Drawing.Point(363, 5);
             this.print_panel1.Name = "print_panel1";
@@ -174,27 +177,40 @@
             this.print_panel1.TabIndex = 2;
             this.print_panel1.Visible = false;
             // 
-            // prt_pb1
-            // 
-            this.prt_pb1.Location = new System.Drawing.Point(15, 10);
-            this.prt_pb1.Name = "prt_pb1";
-            this.prt_pb1.Size = new System.Drawing.Size(192, 157);
-            this.prt_pb1.TabIndex = 0;
-            this.prt_pb1.TabStop = false;
-            // 
             // prt_pb2
             // 
             this.prt_pb2.Location = new System.Drawing.Point(217, 9);
             this.prt_pb2.Name = "prt_pb2";
             this.prt_pb2.Size = new System.Drawing.Size(192, 158);
+            this.prt_pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb2.TabIndex = 1;
             this.prt_pb2.TabStop = false;
+            this.prt_pb2.Click += new System.EventHandler(this.prt_pb2_Click);
+            // 
+            // prt_pb5
+            // 
+            this.prt_pb5.Location = new System.Drawing.Point(15, 364);
+            this.prt_pb5.Name = "prt_pb5";
+            this.prt_pb5.Size = new System.Drawing.Size(192, 162);
+            this.prt_pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.prt_pb5.TabIndex = 5;
+            this.prt_pb5.TabStop = false;
+            // 
+            // prt_pb6
+            // 
+            this.prt_pb6.Location = new System.Drawing.Point(217, 364);
+            this.prt_pb6.Name = "prt_pb6";
+            this.prt_pb6.Size = new System.Drawing.Size(192, 162);
+            this.prt_pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.prt_pb6.TabIndex = 4;
+            this.prt_pb6.TabStop = false;
             // 
             // prt_pb3
             // 
             this.prt_pb3.Location = new System.Drawing.Point(15, 184);
             this.prt_pb3.Name = "prt_pb3";
             this.prt_pb3.Size = new System.Drawing.Size(192, 159);
+            this.prt_pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb3.TabIndex = 3;
             this.prt_pb3.TabStop = false;
             // 
@@ -202,34 +218,47 @@
             // 
             this.prt_pb4.Location = new System.Drawing.Point(217, 185);
             this.prt_pb4.Name = "prt_pb4";
-            this.prt_pb4.Size = new System.Drawing.Size(183, 158);
+            this.prt_pb4.Size = new System.Drawing.Size(192, 158);
+            this.prt_pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prt_pb4.TabIndex = 2;
             this.prt_pb4.TabStop = false;
             // 
-            // prt_pb5
+            // prt_pb1
             // 
-            this.prt_pb5.Location = new System.Drawing.Point(15, 364);
-            this.prt_pb5.Name = "prt_pb5";
-            this.prt_pb5.Size = new System.Drawing.Size(192, 162);
-            this.prt_pb5.TabIndex = 5;
-            this.prt_pb5.TabStop = false;
+            this.prt_pb1.Location = new System.Drawing.Point(15, 10);
+            this.prt_pb1.Name = "prt_pb1";
+            this.prt_pb1.Size = new System.Drawing.Size(192, 157);
+            this.prt_pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.prt_pb1.TabIndex = 0;
+            this.prt_pb1.TabStop = false;
             // 
-            // prt_pb6
+            // printDocument1
             // 
-            this.prt_pb6.Location = new System.Drawing.Point(223, 364);
-            this.prt_pb6.Name = "prt_pb6";
-            this.prt_pb6.Size = new System.Drawing.Size(183, 162);
-            this.prt_pb6.TabIndex = 4;
-            this.prt_pb6.TabStop = false;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(153, 526);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.print_panel1);
             this.Controls.Add(this.video_panel);
             this.Controls.Add(this.first_panel1);
-            this.Controls.Add(this.print_panel1);
             this.Name = "Form1";
             this.Text = "电子签名系统";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -237,12 +266,12 @@
             this.first_panel1.PerformLayout();
             this.video_panel.ResumeLayout(false);
             this.print_panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prt_pb4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prt_pb6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prt_pb1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,6 +295,9 @@
         private System.Windows.Forms.PictureBox prt_pb4;
         private System.Windows.Forms.PictureBox prt_pb2;
         private System.Windows.Forms.PictureBox prt_pb1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 

@@ -81,14 +81,63 @@ namespace ss4pd
             bitmap.Dispose();
             //string sv_img = (@"E:\Temp\" + filenName);
             sv_img = (@"E:\Temp\" + filenName);
-            if (pic_list.Count == 6)    //检查打印页是否满6张照片，如果满，清楚所有元素，否则添加一个元素
-            {
-                pic_list.Clear();
-            }
-            else
+            if (pic_list.Count < 6)
             {
                 pic_list.Add(sv_img);
+                if (pic_list.Count == 6)
+                {
+                    MessageBox.Show("照片组已经满，现在开始清除");
+                    string a_pic1 = pic_list[0].ToString();
+                    string a_pic2 = pic_list[1].ToString();
+                    string a_pic3 = pic_list[2].ToString();
+                    string a_pic4 = pic_list[3].ToString();
+                    string a_pic5 = pic_list[4].ToString();
+                    string a_pic6 = pic_list[5].ToString();
+                    prt_pb1.Image = System.Drawing.Image.FromFile(a_pic1);
+                    prt_pb2.Image = System.Drawing.Image.FromFile(a_pic2);
+                    prt_pb3.Image = System.Drawing.Image.FromFile(a_pic3);
+                    prt_pb4.Image = System.Drawing.Image.FromFile(a_pic4);
+                    prt_pb5.Image = System.Drawing.Image.FromFile(a_pic5);
+                    prt_pb6.Image = System.Drawing.Image.FromFile(a_pic6);
+
+                    video_panel.Hide();
+                    print_panel1.Show();
+                    EventArgs = new EventHandler(button1);
+                    eventA+ 
+                }
+                
             }
+            //if (pic_list.Count == 6)    //检查打印页是否满6张照片，如果满，清楚所有元素，否则添加一个元素
+            //{
+            //    MessageBox.Show("照片组已经满，现在开始清除");
+            //    string a_pic1 = pic_list[0].ToString();
+            //    string a_pic2 = pic_list[1].ToString();
+            //    string a_pic3 = pic_list[2].ToString();
+            //    string a_pic4 = pic_list[3].ToString();
+            //    string a_pic5 = pic_list[4].ToString();
+            //    string a_pic6 = pic_list[5].ToString();
+            //    prt_pb1.Image = System.Drawing.Image.FromFile(a_pic1);
+            //    prt_pb2.Image = System.Drawing.Image.FromFile(a_pic2);
+            //    prt_pb3.Image = System.Drawing.Image.FromFile(a_pic3);
+            //    prt_pb4.Image = System.Drawing.Image.FromFile(a_pic4);
+            //    prt_pb5.Image = System.Drawing.Image.FromFile(a_pic5);
+            //    prt_pb6.Image = System.Drawing.Image.FromFile(a_pic6);
+            //
+            //    video_panel.Hide();
+            //    print_panel1.Show();
+            //    //prt_pb1.Image = System.Drawing.Image.FromFile(string pic_list[0]);
+            //
+            //    //pic_list.Clear();
+            //}
+            //else
+            //{
+            //    pic_list.Add(sv_img); //添加照片路径至数组
+            //   //foreach (string i in pic_list)
+            //   //{
+            //   //    prt_pb1.Image = System.Drawing.Image.FromFile(i); ;
+            //   //    
+            //   //}
+            //}
             
             //pictureBox1.Image = System.Drawing.Image.FromFile(sv_img);
             //if (pictureBox1.Image != null)
@@ -96,5 +145,27 @@ namespace ss4pd
             //    videoSourcePlayer1.Hide();
             //}
         }
+
+        private void prt_pb2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap _NewBitmap = new Bitmap(print_panel1.Width, print_panel1.Height);
+            print_panel1.DrawToBitmap(_NewBitmap, new Rectangle(0, 0, _NewBitmap.Width, _NewBitmap.Height));
+            e.Graphics.DrawImage(_NewBitmap, 0, 0, _NewBitmap.Width, _NewBitmap.Height);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //this.printDialog1.Document = this.printDocument1;
+            //if (this.printDialog1.ShowDialog() == DialogResult.OK)
+            //{
+                this.printDocument1.Print();
+            //}
+        }
+
     }
 }
