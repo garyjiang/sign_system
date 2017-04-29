@@ -118,7 +118,7 @@
             this.video_panel.Controls.Add(this.bt_rescupture);
             this.video_panel.Controls.Add(this.bt_cupture1);
             this.video_panel.Controls.Add(this.videoSourcePlayer1);
-            this.video_panel.Location = new System.Drawing.Point(74, 15);
+            this.video_panel.Location = new System.Drawing.Point(22, 3);
             this.video_panel.Name = "video_panel";
             this.video_panel.Size = new System.Drawing.Size(585, 504);
             this.video_panel.TabIndex = 1;
@@ -163,6 +163,7 @@
             this.videoSourcePlayer1.TabIndex = 0;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
+            this.videoSourcePlayer1.Click += new System.EventHandler(this.videoSourcePlayer1_Click);
             // 
             // print_panel1
             // 
@@ -172,7 +173,7 @@
             this.print_panel1.Controls.Add(this.prt_pb3);
             this.print_panel1.Controls.Add(this.prt_pb4);
             this.print_panel1.Controls.Add(this.prt_pb1);
-            this.print_panel1.Location = new System.Drawing.Point(126, 1);
+            this.print_panel1.Location = new System.Drawing.Point(677, 3);
             this.print_panel1.Name = "print_panel1";
             this.print_panel1.Size = new System.Drawing.Size(800, 1088);
             this.print_panel1.TabIndex = 2;
@@ -256,12 +257,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.video_panel);
-            this.Controls.Add(this.first_panel1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.print_panel1);
+            this.Controls.Add(this.first_panel1);
             this.Name = "Form1";
             this.Text = "电子签名系统";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.first_panel1.ResumeLayout(false);
             this.first_panel1.PerformLayout();

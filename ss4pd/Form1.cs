@@ -30,6 +30,8 @@ namespace ss4pd
         public Form1()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -48,6 +50,8 @@ namespace ss4pd
             {
                 this.first_panel1.Hide();
                 //MessageBox.Show("Hello,Text","提示");
+                //this.pictureBox1.Hide();
+                this.print_panel1.Hide();
                 this.video_panel.Show();
                 videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
                 selectedDeviceIndex = 0;
@@ -86,7 +90,8 @@ namespace ss4pd
                 pic_list.Add(sv_img);
                 if (pic_list.Count == 6)
                 {
-                    MessageBox.Show("照片组已经满，现在开始清除");
+                    //MessageBox.Show("照片组已经满，现在开始清除");
+                    //将照片组中的照片分别分配给不同的picturebox
                     string a_pic1 = pic_list[0].ToString();
                     string a_pic2 = pic_list[1].ToString();
                     string a_pic3 = pic_list[2].ToString();
@@ -100,8 +105,8 @@ namespace ss4pd
                     prt_pb5.Image = System.Drawing.Image.FromFile(a_pic5);
                     prt_pb6.Image = System.Drawing.Image.FromFile(a_pic6);
 
-                    video_panel.Hide();
-                    print_panel1.Show();
+                    video_panel.Hide(); //隐藏视频panel
+                    print_panel1.Show(); //显示要打印的panel
                     
                 }
                 
@@ -162,7 +167,8 @@ namespace ss4pd
             //this.printDialog1.Document = this.printDocument1;
             //if (this.printDialog1.ShowDialog() == DialogResult.OK)
             //{
-                this.printDocument1.Print();
+            printDocument1.PrintController = new System.Drawing.Printing.StandardPrintController(); //隐藏打印窗口    
+            this.printDocument1.Print(); //直接打印
             //}
         }
 
@@ -175,11 +181,63 @@ namespace ss4pd
             //    videoSourcePlayer1.Show();
             //
             //}
-            if (File.Exists(sv_img))
+            try
+            {
+                if (File.Exists(sv_img))
+                {
+
+                    File.Delete(sv_img);
+                }
+            }
+            catch (Exception)
             {
 
-                File.Delete(sv_img);
             }
+        }
+
+
+        //窗口关闭，如果摄像头开启，则关闭
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show(
+                "确认要退出吗？", 
+                "退出", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            
+            if ( dr == DialogResult.Yes )
+            {
+                e.Cancel = false;
+                
+                if (!(videoSource == null))
+                {
+                    if (videoSource.IsRunning)
+                    {
+                        videoSource.SignalToStop();
+                        videoSource = null;
+                    }
+                }
+                try
+                {
+                    System.Environment.Exit(0);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+                    
+
+                
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void videoSourcePlayer1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
